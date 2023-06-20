@@ -2,7 +2,17 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Brain Games!");
-        Cli.greetGamer();
+        int gameNumber = Cli.getGamerInput();
+        switch (gameNumber) {
+            case 2:
+                EvenGame.askQuestions();
+                break;
+            case 1:
+                Cli.greetGamer();
+                break;
+            case 0:
+                break;
+            default:
+        }
     }
 }
