@@ -22,7 +22,7 @@ public class Gcd {
         int firstArgument;
         int secondArgument;
         // Specific question
-        System.out.println("What is the result of the expression?");
+        System.out.println("Find the greatest common divisor of given numbers.");
         while (countsCorrectAnswers < targetAmountOfAttempts && gamerAnswer == correctAnswer) {
             // generation of the random parameters
             firstArgument = Engine.generateNumber(lowBoundOfInterval, upperBoundOfInterval);
@@ -32,16 +32,8 @@ public class Gcd {
             System.out.print("Question: " + firstArgument + " " + secondArgument + "\nYou answer: ");
             // receive the answer from Gamer
             gamerAnswer = answerReceiver.nextInt();
-            if (gamerAnswer == correctAnswer) {
-                System.out.println("Correct!");
-                countsCorrectAnswers += 1;
-                if (countsCorrectAnswers == targetAmountOfAttempts) {
-                    System.out.println("Congratulations, " + gamerName + "!");
-                }
-            } else {
-                System.out.println(String.format("'%d' is wrong answer ;(. " + "Correct answer was '%d'.\n"
-                                               + "Let's try again %s!", gamerAnswer, correctAnswer, gamerName));
-            }
+            countsCorrectAnswers += 1;
+            Engine.correctInformation(gamerAnswer, correctAnswer, countsCorrectAnswers, gamerName);
         }
     }
 }

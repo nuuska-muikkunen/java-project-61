@@ -11,7 +11,6 @@ public class Cli {
         System.out.println("Hello, " + playerName + "!");
         return playerName;
     }
-
     public static int getGamerInput() {
         Scanner gamerInput = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
