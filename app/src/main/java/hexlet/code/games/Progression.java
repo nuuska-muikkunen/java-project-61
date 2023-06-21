@@ -4,7 +4,7 @@ import java.util.Scanner;
 import hexlet.code.Engine;
 public class Progression {
     public static void askQuestions(String gamerName) {
-        int i;
+        Scanner answerReceiver = new Scanner(System.in);
         int countsCorrectAnswers = 0;
         int targetAmountOfAttempts = 3;
         int amountOfNumbers = 10;
@@ -18,13 +18,12 @@ public class Progression {
         int hiddenInx;
         int correctAnswer = 0;
         int gamerAnswer = 0;
-        Scanner answerReceiver = new Scanner(System.in);
         System.out.println("What number is missing in the progression?");
         while (countsCorrectAnswers < targetAmountOfAttempts && gamerAnswer == correctAnswer) {
             firstProgressionElement = Engine.generateNumber(minFirstElement, maxFirstElement);
             progressionStep = Engine.generateNumber(minStep, maxStep);
             hiddenInx = Engine.generateNumber(0, amountOfNumbers - 1);
-            for (i = 0; i < amountOfNumbers; i++) {
+            for (int i = 0; i < amountOfNumbers; i++) {
                 numbers[i] = Integer.toString(firstProgressionElement + i * progressionStep);
             }
             numbers[hiddenInx] = "..";

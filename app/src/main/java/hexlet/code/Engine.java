@@ -12,7 +12,7 @@ public class Engine {
             if (countsCorrectAnswers == targetAmountOfAttempts) {
                 System.out.println("Congratulations, " + gamerName + "!");
             }
-        }else {
+        } else {
             System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again %s!",
                     gamerAnswer, correctAnswer, gamerName));
         }
@@ -25,7 +25,7 @@ public class Engine {
             if (countsCorrectAnswers == targetAmountOfAttempts) {
                 System.out.println("Congratulations, " + gamerName + "!");
             }
-        }else {
+        } else {
             System.out.println(String.format("'%d' is wrong answer ;(. Correct answer was '%d'.\nLet's try again %s!",
                     gamerAnswer, correctAnswer, gamerName));
         }
