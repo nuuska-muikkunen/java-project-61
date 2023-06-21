@@ -31,7 +31,8 @@ public class Progression {
             System.out.print("Question: " + String.join(" ", numbers) + "\nYou answer: ");
             gamerAnswer = answerReceiver.nextInt();
             countsCorrectAnswers += 1;
-            Engine.correctInformation(gamerAnswer, correctAnswer, countsCorrectAnswers, gamerName);
+            Engine.correctInformation(String.valueOf(gamerAnswer), String.valueOf(correctAnswer),
+                    countsCorrectAnswers, gamerName);
         }
     }
 }

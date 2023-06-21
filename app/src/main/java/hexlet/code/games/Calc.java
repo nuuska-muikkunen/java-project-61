@@ -45,7 +45,8 @@ public class Calc {
             // receive the answer from Gamer
             gamerAnswer = answerReceiver.nextInt();
             countsCorrectAnswers += 1;
-            Engine.correctInformation(gamerAnswer, correctAnswer, countsCorrectAnswers, gamerName);
+            Engine.correctInformation(String.valueOf(gamerAnswer), String.valueOf(correctAnswer),
+                    countsCorrectAnswers, gamerName);
         }
     }
 }
