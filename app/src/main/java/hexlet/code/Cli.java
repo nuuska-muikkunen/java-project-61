@@ -15,7 +15,7 @@ public class Cli {
     public static int getGamerInput() {
         Scanner gamerInput = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
-        System.out.print("1 - Greet\n2 - Even\n0 - Exit\nYour choice: ");
+        System.out.print("1 - Greet\n2 - Even\n3 - Calc\n0 - Exit\nYour choice: ");
         int inputNumber = gamerInput.nextInt();
         return inputNumber;
     }
