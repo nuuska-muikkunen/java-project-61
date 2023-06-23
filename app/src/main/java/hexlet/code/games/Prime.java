@@ -2,11 +2,16 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Even {
-    // returns "true" if the argument is even number, otherwise return "false"
-    public static boolean isEven(int n) {
-        return n % 2 == 0;
+public class Prime {
+    public static boolean isPrime(int number) {
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
+
     public static void askQuestions(String gamerName) {
         int countsCorrectAnswers = 0;
         int amountOfAttempts = 3;
@@ -15,15 +20,12 @@ public class Even {
         int randomNumberToAsk;
         String correctAnswer = "";
         String gamerAnswer = "";
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        // main cycle of the questions to the Gamer
-        // until target amount of the consecutive correct answers achieved or the incorrect answer is given
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         while (countsCorrectAnswers < amountOfAttempts && gamerAnswer.equals(correctAnswer)) {
             randomNumberToAsk = Engine.generateNumber(lowBoundOfInterval, upperBoundOfInterval);
-            correctAnswer = isEven(randomNumberToAsk) ? "yes" : "no";
+            correctAnswer = isPrime(randomNumberToAsk) ? "yes" : "no";
             System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
             countsCorrectAnswers += 1;
-            // receive and compare the answer from Gamer
             gamerAnswer = Engine.communicateGamer(correctAnswer, countsCorrectAnswers, amountOfAttempts, gamerName);
         }
     }
