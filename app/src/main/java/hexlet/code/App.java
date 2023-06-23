@@ -18,13 +18,23 @@ public class App {
             String gamerName = gamerInput.next();
             System.out.println("Hello, " + gamerName + "!");
             switch (gameNumber) {
-                case 2 -> Even.askQuestions(gamerName);
-                case 3 -> Calc.askQuestions(gamerName);
-                case 4 -> Gcd.askQuestions(gamerName);
-                case 5 -> Progression.askQuestions(gamerName);
-                case 6 -> Prime.askQuestions(gamerName);
-                default -> {
-                }
+                case 2:
+                    Even.askQuestions(gamerName);
+                    break;
+                case 3:
+                    Calc.askQuestions(gamerName);
+                    break;
+                case 4:
+                    Gcd.askQuestions(gamerName);
+                    break;
+                case 5:
+                    Progression.askQuestions(gamerName);
+                    break;
+                case 6:
+                    Prime.askQuestions(gamerName);
+                    break;
+                default:
+                    break;
             }
         }
     }
