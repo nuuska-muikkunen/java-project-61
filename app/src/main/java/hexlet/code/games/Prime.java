@@ -13,20 +13,20 @@ public class Prime {
     }
 
     public static void askQuestions(String gamerName) {
-        int countsCorrectAnswers = 0;
+        int countCorrectAnswers = 0;
         int amountOfAttempts = 3;
-        int lowBoundOfInterval = 0;
-        int upperBoundOfInterval = 100;
+        int lowIntervalBound = 0;
+        int upperIntervalBound = 100;
         int randomNumberToAsk;
         String correctAnswer = "";
         String gamerAnswer = "";
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (countsCorrectAnswers < amountOfAttempts && gamerAnswer.equals(correctAnswer)) {
-            randomNumberToAsk = Engine.generateNumber(lowBoundOfInterval, upperBoundOfInterval);
+        while (countCorrectAnswers < amountOfAttempts && gamerAnswer.equals(correctAnswer)) {
+            randomNumberToAsk = Engine.generateNumber(lowIntervalBound, upperIntervalBound);
             correctAnswer = isPrime(randomNumberToAsk) ? "yes" : "no";
             System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
-            countsCorrectAnswers += 1;
-            gamerAnswer = Engine.communicateGamer(correctAnswer, countsCorrectAnswers, amountOfAttempts, gamerName);
+            countCorrectAnswers += 1;
+            gamerAnswer = Engine.communicateGamer(correctAnswer, countCorrectAnswers, amountOfAttempts, gamerName);
         }
     }
 }

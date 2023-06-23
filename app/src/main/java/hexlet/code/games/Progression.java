@@ -6,10 +6,8 @@ public class Progression {
         int countsCorrectAnswers = 0;
         int amountOfAttempts = 3;
         int amountOfNumbers = 10;
-        int minFirstElement = 1;
         int maxFirstElement = 100;
         int firstProgressionElement;
-        int minStep = 1;
         int maxStep = 10;
         int progressionStep;
         String[] numbers = new String[amountOfNumbers];
@@ -18,8 +16,8 @@ public class Progression {
         String gamerAnswer = "";
         System.out.println("What number is missing in the progression?");
         while (countsCorrectAnswers < amountOfAttempts && gamerAnswer.equals(correctAnswer)) {
-            firstProgressionElement = Engine.generateNumber(minFirstElement, maxFirstElement);
-            progressionStep = Engine.generateNumber(minStep, maxStep);
+            firstProgressionElement = Engine.generateNumber(1, maxFirstElement);
+            progressionStep = Engine.generateNumber(1, maxStep);
             hiddenInx = Engine.generateNumber(0, amountOfNumbers - 1);
             for (int i = 0; i < amountOfNumbers; i++) {
                 numbers[i] = Integer.toString(firstProgressionElement + i * progressionStep);
