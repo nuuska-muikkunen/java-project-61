@@ -14,19 +14,19 @@ public class Prime {
 
     public static void askQuestions(String gamerName) {
         int countCorrectAnswers = 0;
-        int amountOfAttempts = 3;
-        int lowIntervalBound = 0;
-        int upperIntervalBound = 100;
+        int amountsOfAttempts = 3;
+        int lowBound = 0;
+        int upperBound = 100;
         int randomNumberToAsk;
         String correctAnswer = "";
         String gamerAnswer = "";
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        while (countCorrectAnswers < amountOfAttempts && gamerAnswer.equals(correctAnswer)) {
-            randomNumberToAsk = Engine.generateNumber(lowIntervalBound, upperIntervalBound);
+        while (countCorrectAnswers < amountsOfAttempts && gamerAnswer.equals(correctAnswer)) {
+            randomNumberToAsk = Engine.generateNumber(lowBound, upperBound);
             correctAnswer = isPrime(randomNumberToAsk) ? "yes" : "no";
             System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
             countCorrectAnswers += 1;
-            gamerAnswer = Engine.communicateGamer(correctAnswer, countCorrectAnswers, amountOfAttempts, gamerName);
+            gamerAnswer = Engine.communicateGamer(correctAnswer, countCorrectAnswers, amountsOfAttempts, gamerName);
         }
     }
 }
