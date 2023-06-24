@@ -4,6 +4,7 @@ public class Calc {
 
     public static final int AMOUNT_OF_ATTEMPTS = 3;
     public static final int UPPER_BOUND_OF_INTERVAL = 100;
+    public static final int MAX_EXPECTED_POSSIBLE_RESULT_PLUS_ONE = 10001;
 
     public static int calculation(int firstArgument, int secondArgument, String operation) {
         switch (operation) {
@@ -14,7 +15,7 @@ public class Calc {
             case "*":
                 return firstArgument * secondArgument;
             default:
-                return 10001; //exceeds maximum expected possible result of calculation
+                return MAX_EXPECTED_POSSIBLE_RESULT_PLUS_ONE; //exceeds maximum expected possible result of calculation
         }
     }
     public static void askQuestions(String gamerName) {

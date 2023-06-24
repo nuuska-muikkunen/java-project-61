@@ -12,7 +12,7 @@ public class Progression {
 
     public static void askQuestions(String gamerName) {
         int countsCorrectAnswers = 0;
-        int firstProgressionElement;;
+        int firstProgressionElement;
         int progressionStep;
         String[] numbers = new String[AMOUNT_OF_NUMBERS];
         int hiddenInx;
