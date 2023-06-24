@@ -18,7 +18,7 @@ public class Engine {
                 System.out.println("Congratulations, " + gamerName + "!");
             }
         } else {
-            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again %s!%n",
+            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!%n",
                     gamerAnswer, correctAnswer, gamerName);
         }
         return gamerAnswer;
