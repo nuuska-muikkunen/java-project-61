@@ -1,32 +1,30 @@
 package hexlet.code.games;
 
+import hexlet.code.Utils;
 import hexlet.code.Engine;
 
 public class Even {
-
-    public static final int AMOUNT_OF_ATTEMPTS = 3;
     public static final int UPPER_BOUND_OF_INTERVAL = 100;
-
-    // returns "true" if the argument is even number, otherwise return "false"
+    public static final int LOW_BOUND_OF_INTERVAL = 0;
+    public static final int AMOUNT_OF_QUESTIONS = 3;
     public static boolean isEven(int n) {
         return n % 2 == 0;
     }
-    public static void askQuestions(String gamerName) {
-        int countsCorrectAnswers = 0;
-        int lowBoundOfInterval = 0;
+    public static String[] generateQuestion() {
         int randomNumberToAsk;
-        String correctAnswer = "";
-        String gamerAnswer = "";
+        String[] questionsAndAnswers = new String[2];
+        randomNumberToAsk = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
+        questionsAndAnswers[0] = String.format("Question: %d \nYou answer: ", randomNumberToAsk);
+        questionsAndAnswers[1] = isEven(randomNumberToAsk) ? "yes" : "no";
+        //System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
+        return questionsAndAnswers;
+    }
+    public static void askQuestions(String gamerName) {
+        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        // main cycle of the questions to the Gamer
-        // until target amount of the consecutive correct answers achieved or the incorrect answer is given
-        while (countsCorrectAnswers < AMOUNT_OF_ATTEMPTS && gamerAnswer.equals(correctAnswer)) {
-            randomNumberToAsk = Engine.generateNumber(lowBoundOfInterval, UPPER_BOUND_OF_INTERVAL);
-            correctAnswer = isEven(randomNumberToAsk) ? "yes" : "no";
-            System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
-            countsCorrectAnswers += 1;
-            // receive and compare the answer from Gamer
-            gamerAnswer = Engine.communicateGamer(correctAnswer, countsCorrectAnswers, AMOUNT_OF_ATTEMPTS, gamerName);
+        for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
+            questionsAndCorrectAnswers[i] = generateQuestion();
         }
+        Engine.communicateGamer(questionsAndCorrectAnswers, gamerName);
     }
 }

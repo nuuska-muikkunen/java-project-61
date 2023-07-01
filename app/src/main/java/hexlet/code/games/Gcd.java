@@ -1,32 +1,33 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 public class Gcd {
-
-    public static final int AMOUNT_OF_ATTEMPTS = 3;
     public static final int UPPER_BOUND_OF_INTERVAL = 100;
-
+    public static final int LOW_BOUND_OF_INTERVAL = 0;
+    public static final int AMOUNT_OF_QUESTIONS = 3;
     public static int gcd(int a, int b) {
         if (b == 0) {
             return a;
         }
         return gcd(b, a % b);
     }
-    public static void askQuestions(String gamerName) {
-        int countsCorrectAnswers = 0;
-        int lowBoundOfInterval = 0;
-        String correctAnswer = "";
-        String gamerAnswer = "";
+    public static String[] generateQuestion() {
         int firstArgument;
         int secondArgument;
+        String[] questionsAndAnswers = new String[2];
+        firstArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
+        secondArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
+        questionsAndAnswers[0] = String.format("Question: %d %d \nYou answer: ", firstArgument, secondArgument);
+        questionsAndAnswers[1] = String.valueOf(gcd(firstArgument, secondArgument));
+        return questionsAndAnswers;
+    }
+    public static void askQuestions(String gamerName) {
+        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
         System.out.println("Find the greatest common divisor of given numbers.");
-        while (countsCorrectAnswers < AMOUNT_OF_ATTEMPTS && gamerAnswer.equals(correctAnswer)) {
-            firstArgument = Engine.generateNumber(lowBoundOfInterval, UPPER_BOUND_OF_INTERVAL);
-            secondArgument = Engine.generateNumber(lowBoundOfInterval, UPPER_BOUND_OF_INTERVAL);
-            correctAnswer = String.valueOf(gcd(firstArgument, secondArgument));
-            System.out.print("Question: " + firstArgument + " " + secondArgument + "\nYou answer: ");
-            countsCorrectAnswers += 1;
-            gamerAnswer = Engine.communicateGamer(correctAnswer, countsCorrectAnswers, AMOUNT_OF_ATTEMPTS, gamerName);
+        for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
+            questionsAndCorrectAnswers[i] = generateQuestion();
         }
+        Engine.communicateGamer(questionsAndCorrectAnswers, gamerName);
     }
 }
