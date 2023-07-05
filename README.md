@@ -3,10 +3,10 @@
 ### Badges from codeclimate
 <a href="https://codeclimate.com/github/nuuska-muikkunen/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/882ed6eb915ee099d98f/maintainability" /></a>
 ### reference to asciinemas1
-https://asciinema.org/a/lLGy9iGjd1mFoyL4bEotX24ld
+[![asciicast](https://asciinema.org/a/lLGy9iGjd1mFoyL4bEotX24ld.svg)](https://asciinema.org/a/lLGy9iGjd1mFoyL4bEotX24ld)
 ### reference to asciinemas2
-https://asciinema.org/a/592499
+[![asciicast](https://asciinema.org/a/592499.svg)](https://asciinema.org/a/592499)
 ### reference to asciinemas3
-https://asciinema.org/a/592576
+[![asciicast](https://asciinema.org/a/592576.svg)](https://asciinema.org/a/592576)
 ### reference to asciinemas4
-https://asciinema.org/a/592898
+[![asciicast](https://asciinema.org/a/584828.svg)](https://asciinema.org/a/584828)
