@@ -8,6 +8,9 @@ public class Prime {
     public static final int AMOUNT_OF_QUESTIONS = 3;
 
     public static boolean isPrime(int number) {
+        if (number == 0) {
+            return false;
+        }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
