@@ -16,7 +16,6 @@ public class Even {
         randomNumberToAsk = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
         questionsAndAnswers[0] = String.format("Question: %d \nYou answer: ", randomNumberToAsk);
         questionsAndAnswers[1] = isEven(randomNumberToAsk) ? "yes" : "no";
-        //System.out.print("Question: " + randomNumberToAsk + "\nYou answer: ");
         return questionsAndAnswers;
     }
     public static void askQuestions(String gamerName) {
