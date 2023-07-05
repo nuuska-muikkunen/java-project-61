@@ -28,9 +28,9 @@ public class Engine {
                 counter = 0;
                 break;
             }
-            counter += 1;
+            counter = i;
         }
-        if (counter == AMOUNT_OF_ATTEMPTS) {
+        if (counter == AMOUNT_OF_ATTEMPTS - 1) {
             System.out.println("Congratulations, " + gamerName + "!");
         }
     }
