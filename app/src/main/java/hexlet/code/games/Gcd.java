@@ -13,21 +13,19 @@ public class Gcd {
         return gcd(b, a % b);
     }
     public static String[] generateQuestion() {
-        int firstArgument;
-        int secondArgument;
         String[] questionsAndAnswers = new String[2];
-        firstArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
-        secondArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
-        questionsAndAnswers[0] = String.format("Question: %d %d \nYou answer: ", firstArgument, secondArgument);
+        int firstArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
+        int secondArgument = Utils.generateNumber(LOW_BOUND_OF_INTERVAL, UPPER_BOUND_OF_INTERVAL);
+        questionsAndAnswers[0] = String.format("%d %d", firstArgument, secondArgument);
         questionsAndAnswers[1] = String.valueOf(gcd(firstArgument, secondArgument));
         return questionsAndAnswers;
     }
-    public static void askQuestions(String gamerName) {
+    public static void askQuestions() {
         String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
-        System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
             questionsAndCorrectAnswers[i] = generateQuestion();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers, gamerName);
+        Engine.communicateGamer(questionsAndCorrectAnswers,
+                    "Find the greatest common divisor of given numbers.");
     }
 }

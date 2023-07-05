@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -17,27 +16,23 @@ public class Progression {
         return numbers;
     }
     public static String[] generateQuestion() {
-        int firstProgressionElement;
-        int progressionStep;
-        int hiddenInx;
-        String[] numbers;
         String[] questionsAndAnswers = new String[2];
-        firstProgressionElement = Utils.generateNumber(1, MAX_FIRST_ELEMENT);
-        progressionStep = Utils.generateNumber(1, MAX_STEP);
-        numbers = getNumbers(firstProgressionElement, progressionStep);
-        hiddenInx = Utils.generateNumber(0, AMOUNT_OF_NUMBERS - 1);
+        int firstProgressionElement = Utils.generateNumber(1, MAX_FIRST_ELEMENT);
+        int progressionStep = Utils.generateNumber(1, MAX_STEP);
+        String[] numbers = getNumbers(firstProgressionElement, progressionStep);
+        int hiddenInx = Utils.generateNumber(0, AMOUNT_OF_NUMBERS - 1);
         numbers[hiddenInx] = "..";
-        questionsAndAnswers[0] = "Question: " + String.join(" ", numbers) + "\nYou answer: ";
+        questionsAndAnswers[0] = String.join(" ", numbers);
         questionsAndAnswers[1] = String.valueOf(firstProgressionElement + hiddenInx * progressionStep);
         return questionsAndAnswers;
     }
-    public static void askQuestions(String gamerName) {
+    public static void askQuestions() {
         String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
-        System.out.println("What number is missing in the progression?");
         for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
             questionsAndCorrectAnswers[i] = generateQuestion();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers, gamerName);
+        Engine.communicateGamer(questionsAndCorrectAnswers,
+                     "What number is missing in the progression?");
     }
 }
 
