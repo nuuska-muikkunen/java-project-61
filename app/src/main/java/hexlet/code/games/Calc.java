@@ -16,7 +16,7 @@ public class Calc {
             case "*":
                 return firstArgument * secondArgument;
             default:
-                return firstArgument/0;
+                return firstArgument / 0;
         }
     }
     public static String[] generateQuestion() {
