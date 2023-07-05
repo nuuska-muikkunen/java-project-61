@@ -20,13 +20,13 @@ public class Engine {
             String gamerAnswer = answerReceiver.next();
             if (gamerAnswer.equals(answersAndQuestions[i][1])) {
                 System.out.println("Correct!");
-                if (i == AMOUNT_OF_ATTEMPTS - 1) {
-                    System.out.println("Congratulations, " + gamerName + "!");
-                }
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!%n",
                         gamerAnswer, answersAndQuestions[i][1], gamerName);
                 break;
+            }
+            if (i == AMOUNT_OF_ATTEMPTS - 1) {
+                System.out.println("Congratulations, " + gamerName + "!");
             }
         }
     }
