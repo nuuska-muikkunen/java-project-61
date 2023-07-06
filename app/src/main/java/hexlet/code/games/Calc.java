@@ -7,7 +7,7 @@ public class Calc {
     public static final int AMOUNT_OF_QUESTIONS = 3;
     public static final String[] OPERATIONS_LIST = new String[]{"+", "-", "*"};
 
-    public static int calculation(int firstArgument, int secondArgument, String operation) {
+    public static int calculation(int firstArgument, int secondArgument, String operation) throws RuntimeException {
         switch (operation) {
             case "+":
                 return firstArgument + secondArgument;
@@ -16,7 +16,7 @@ public class Calc {
             case "*":
                 return firstArgument * secondArgument;
             default:
-                return Integer.MAX_VALUE/*firstArgument / 0*/;
+                throw new RuntimeException("no such operation!");
         }
     }
     public static String[] generateQuestion() {
