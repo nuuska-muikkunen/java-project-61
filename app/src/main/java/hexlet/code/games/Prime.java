@@ -3,9 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.AMOUNT_OF_ATTEMPTS;
 public class Prime {
     public static final int UPPER_BOUND = 100;
-    public static final int AMOUNT_OF_QUESTIONS = 3;
+    public static final String GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static boolean isPrime(int number) {
         if (number == 0) {
@@ -26,11 +27,10 @@ public class Prime {
         return questionsAndAnswers;
     }
     public static void askQuestions() {
-        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
-        for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
+        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_ATTEMPTS][2];
+        for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
             questionsAndCorrectAnswers[i] = generateQuestion();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers,
-                     "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES);
     }
 }

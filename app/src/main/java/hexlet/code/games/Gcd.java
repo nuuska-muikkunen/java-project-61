@@ -2,10 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+
+import static hexlet.code.Engine.AMOUNT_OF_ATTEMPTS;
+
 public class Gcd {
     public static final int UPPER_BOUND_OF_INTERVAL = 100;
     public static final int LOW_BOUND_OF_INTERVAL = 0;
-    public static final int AMOUNT_OF_QUESTIONS = 3;
+    public static final String GAME_RULES = "Find the greatest common divisor of given numbers.";
     public static int gcd(int a, int b) {
         if (b == 0) {
             return a;
@@ -21,11 +24,10 @@ public class Gcd {
         return questionsAndAnswers;
     }
     public static void askQuestions() {
-        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
-        for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
+        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_ATTEMPTS][2];
+        for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
             questionsAndCorrectAnswers[i] = generateQuestion();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers,
-                    "Find the greatest common divisor of given numbers.");
+        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES);
     }
 }

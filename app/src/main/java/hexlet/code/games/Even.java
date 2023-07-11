@@ -3,10 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Utils;
 import hexlet.code.Engine;
 
+import static hexlet.code.Engine.AMOUNT_OF_ATTEMPTS;
+
 public class Even {
     public static final int UPPER_BOUND_OF_INTERVAL = 100;
     public static final int LOW_BOUND_OF_INTERVAL = 0;
     public static final int AMOUNT_OF_QUESTIONS = 3;
+    public static final String GAME_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static boolean isEven(int n) {
         return n % 2 == 0;
     }
@@ -18,12 +21,11 @@ public class Even {
         return questionsAndAnswers;
     }
     public static void askQuestions() {
-        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_QUESTIONS][2];
-        for (int i = 0; i < AMOUNT_OF_QUESTIONS; i++) {
+        String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_ATTEMPTS][2];
+        for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
             questionsAndCorrectAnswers[i] = generateQuestion();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers,
-                    "Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES);
 
     }
 }

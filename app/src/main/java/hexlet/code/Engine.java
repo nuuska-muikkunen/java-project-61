@@ -16,7 +16,6 @@ public class Engine {
         Scanner answerReceiver = new Scanner(System.in);
         String gamerName = greetGamer();
         System.out.println(gameQuestion);
-        int counter = 0;
         for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
             System.out.print("Question: " + answersAndQuestions[i][0] + "\nYou answer: ");
             String gamerAnswer = answerReceiver.next();
@@ -25,13 +24,9 @@ public class Engine {
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!%n",
                         gamerAnswer, answersAndQuestions[i][1], gamerName);
-                counter = 0;
-                break;
+                return;
             }
-            counter = i;
         }
-        if (counter == AMOUNT_OF_ATTEMPTS - 1) {
-            System.out.println("Congratulations, " + gamerName + "!");
-        }
+        System.out.println("Congratulations, " + gamerName + "!");
     }
 }
