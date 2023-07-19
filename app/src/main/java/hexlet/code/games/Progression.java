@@ -17,7 +17,7 @@ public class Progression {
         }
         return numbers;
     }
-    public static String[] generateQuestion() {
+    public static String[] roundData() {
         String[] questionsAndAnswers = new String[2];
         int firstProgressionElement = Utils.generateNumber(1, MAX_FIRST_ELEMENT);
         int progressionStep = Utils.generateNumber(1, MAX_STEP);
@@ -28,12 +28,12 @@ public class Progression {
         questionsAndAnswers[1] = String.valueOf(firstProgressionElement + hiddenInx * progressionStep);
         return questionsAndAnswers;
     }
-    public static void askQuestions() {
+    public static void askQuestions(String gamerName) {
         String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_ATTEMPTS][2];
         for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
-            questionsAndCorrectAnswers[i] = generateQuestion();
+            questionsAndCorrectAnswers[i] = roundData();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES);
+        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES, gamerName);
     }
 }
 

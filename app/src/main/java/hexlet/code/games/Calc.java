@@ -21,7 +21,7 @@ public class Calc {
                 throw new RuntimeException("no such operation!");
         }
     }
-    public static String[] generateQuestion() {
+    public static String[] roundData() {
         int amountOfOperations = OPERATIONS.length;
         String[] questionsAndAnswers = new String[2];
         int operationIndex = Utils.generateNumber(0, amountOfOperations - 1);
@@ -33,11 +33,11 @@ public class Calc {
                                                  OPERATIONS[operationIndex]));
         return questionsAndAnswers;
     }
-    public static void askQuestions() {
+    public static void askQuestions(String gamerName) {
         String[][] questionsAndCorrectAnswers = new String[AMOUNT_OF_ATTEMPTS][2];
         for (int i = 0; i < AMOUNT_OF_ATTEMPTS; i++) {
-            questionsAndCorrectAnswers[i] = generateQuestion();
+            questionsAndCorrectAnswers[i] = roundData();
         }
-        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES);
+        Engine.communicateGamer(questionsAndCorrectAnswers, GAME_RULES, gamerName);
     }
 }
